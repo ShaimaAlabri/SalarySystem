@@ -5,11 +5,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class GetAccountResponse {
-    String bankName;
-    String accountNumber;
+@Getter
+@Setter
+public class GetManagerResponse {
+    String department;
+
+    String teamName;
 }

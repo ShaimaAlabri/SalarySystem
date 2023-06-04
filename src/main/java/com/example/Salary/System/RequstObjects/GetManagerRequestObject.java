@@ -1,15 +1,16 @@
-package com.example.Salary.System.ResponseObjects;
+package com.example.Salary.System.RequstObjects;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class GetAccountResponse {
-    String bankName;
-    String accountNumber;
+@Getter
+@Setter
+public class GetManagerRequestObject {
+    String department;
+
+    String teamName;
 }

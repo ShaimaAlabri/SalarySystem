@@ -1,5 +1,6 @@
 package com.example.Salary.System.Controller;
 import com.example.Salary.System.Models.Employee;
+import com.example.Salary.System.Models.Manager;
 import com.example.Salary.System.RequstObjects.GetEmployeeRequestObject;
 import com.example.Salary.System.ResponseObjects.GetEmployeeResponse;
 import com.example.Salary.System.Service.EmployeeService;
@@ -16,19 +17,19 @@ public class EmployeeController {
     EmployeeService employeeService;
 
     @RequestMapping("employee/create")
-    public void saveEmployee (@RequestBody Long employeeRequestObject) {
+    public void saveEmployee(@RequestBody Long employeeRequestObject) {
         createEmployee(employeeRequestObject);
 
     }
 
     @RequestMapping("employee/get")
-    public List<Employee> getEmployees () {
+    public List<Employee> getEmployees() {
         return employeeService.getEmployees();
     }
 
     //Path Variable
     @RequestMapping("employee/get/{employeeId}")
-    public GetEmployeeResponse createEmployee (@PathVariable Long employeeId) {
+    public GetEmployeeResponse createEmployee(@PathVariable Long employeeId) {
         return employeeService.getEmployeeById(employeeId);
     }
 
@@ -45,6 +46,11 @@ public class EmployeeController {
         employee.setCreatedDate(new Date());
         employee.setIsActive(true);
         employeeService.saveEmployee(employee);
+    }
+
+    @RequestMapping(value = "findEmployeeByTeamName", method = RequestMethod.GET)
+    public Manager getEmployeeByTeamName(@RequestParam String department) {
+        return employeeService.getEmployeeByDepartment(department);
     }
 }
 

@@ -1,5 +1,6 @@
 package com.example.Salary.System.Service;
 import com.example.Salary.System.Models.Employee;
+import com.example.Salary.System.Models.Manager;
 import com.example.Salary.System.Repository.EmployeeRepository;
 import com.example.Salary.System.ResponseObjects.GetEmployeeResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,5 +34,8 @@ public class EmployeeService {
 
         return null;
 
+    }
+    public Manager getEmployeeByDepartment(String nameOfDepartment){
+        return employeeRepository.getEmployeeByDepartment(nameOfDepartment);
     }
 }
